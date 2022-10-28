@@ -22,9 +22,10 @@ private HashMap<String, String> list = new HashMap<String, String>();
 	      list.put(file.getName(), ABlob.encryptThisString(fileString));
 	      System.out.println("Successfully wrote to the file.");
 	}
+	
 	public void remove(File file) throws IOException, Exception{
 		System.out.println(list.get(file.getName()));
-		String sha1FileName = "objects/" + list.get(file.getName());
+		String sha1FileName = ".\\objects\\" + list.get(file.getName());
 		File myObj = new File(sha1FileName); 
 	    if (myObj.delete()) { 
 	      System.out.println("Deleted the file: " + myObj.getName());

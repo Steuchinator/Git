@@ -86,15 +86,18 @@ public class ABlob {
 	        }
 	        System.out.println("File Copied");
 	    }
-	public static void main (String[] args) throws IOException {
-		System.out.println(encryptThisString("Hello World"));
-		System.out.println(encryptThisString("hi"));
-//		 File file = new File("TesterFile.txt");
-//		    Scanner sc = new Scanner(file);
-//		    // we just need to use \\Z as delimiter
-//		    sc.useDelimiter("\\Z");
-//		    System.out.println(sc.next());
-	}
+	
+//	public static void main (String[] args) throws IOException {
+//		System.out.println(encryptThisString("Hello World"));
+//		System.out.println(encryptThisString("hi"));
+////		 File file = new File("TesterFile.txt");
+////		    Scanner sc = new Scanner(file);
+////		    // we just need to use \\Z as delimiter
+////		    sc.useDelimiter("\\Z");
+////		    System.out.println(sc.next());
+//	}
+	// no need for a main in blob
+	
 	public static void createBlob (String fileName) throws Exception, IOException {
 		//Step 1: Get string of file contents
 		File file = new File(fileName);
@@ -102,7 +105,7 @@ public class ABlob {
 		//Step 2: Encrypt file contents
 		String fileHash = encryptThisString(fileContents);
 		//Step 3: create new file with name of the hash of contents of previous file
-		File newFile = new File("objects/" + fileHash);
+		File newFile = new File(".\\objects\\" + fileHash);
 		//Step 4: Copy contents
 		copyContent(file, newFile);
 	}

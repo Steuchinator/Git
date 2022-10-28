@@ -25,6 +25,7 @@ tree: e7d79898d3342fd15daf6ec36f4cb095b52fd976
  */
 
 public class Tree {	
+	private String sha;
 	public Tree(ArrayList<String> list) {
 		String sum = "";
 		for (int i = 0; i < list.size(); i++) {	
@@ -34,15 +35,15 @@ public class Tree {
 			}
 		}
 		
-		String sha = getSHA1(sum);
+		sha = getSHA1(sum);
 	
         try {
-        	if(!new File("objects/").exists()) {
+        	if(!new File(".\\objects\\").exists()) {
 	        	File dir = new File("objects");
 	    		dir.mkdirs();
         	}
-        	new File("objects/" + sha).delete();
-            PrintWriter writer = new PrintWriter("objects/" + sha);
+        	new File(".\\objects\\" + sha).delete();
+            PrintWriter writer = new PrintWriter(".\\objects\\" + sha);
             for (String s : list) {
                 writer.println(s);
             }
@@ -52,6 +53,10 @@ public class Tree {
             System.out.println(e.toString());
         }
 	    
+	}
+	
+	public String getShaString() {
+		return sha;
 	}
 	
 	public static String getSHA1(String input) {
